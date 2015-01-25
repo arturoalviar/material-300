@@ -1,0 +1,315 @@
+@import "syntax-variables";
+
+atom-text-editor, :host {
+    background-color: @syntax-background-color;
+    color: @syntax-text-color;
+
+    .wrap-guide {
+        background-color: @syntax-wrap-guide-color;
+    }
+
+    .indent-guide {
+        color: @syntax-indent-guide-color;
+    }
+
+    .invisible-character {
+        color: @syntax-invisible-character-color;
+    }
+
+    .gutter {
+        background-color: @syntax-gutter-background-color;
+        color: @syntax-gutter-text-color;
+
+        .line-number {
+            &.cursor-line {
+                background-color: @syntax-gutter-background-color-selected;
+                color: @syntax-gutter-text-color-selected;
+            }
+
+            &.cursor-line-no-selection {
+                color: @syntax-gutter-text-color-selected;
+            }
+        }
+    }
+
+    .gutter .line-number.folded,
+    .gutter .line-number:after,
+    .fold-marker:after {
+        color: @syntax-text-color;
+    }
+
+    .invisible {
+        color: @syntax-text-color;
+    }
+
+    .cursor {
+        color: @syntax-cursor-color;
+    }
+
+    .selection .region {
+        background-color: @syntax-selection-color;
+    }
+}
+
+atom-text-editor .search-results .marker .region,
+:host .search-results .marker .region {
+    background-color: transparent;
+    border: 1px solid @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region,
+:host .search-results .marker.current-result .region {
+    border: 1px solid @syntax-result-marker-color-selected;
+}
+
+.comment {
+    color: @comment;
+}
+
+
+.keyword {
+    color: @keyword;
+
+    &.control {
+        color: @keyword;  //think boolean and mixins(sass)
+    }
+
+    &.operator {
+        color: @operator;
+    }
+
+    &.other.special-method {
+        color: @keyword;
+    }
+
+    &.other.unit {
+        color: @keyword;
+    }
+}
+
+.storage {
+    color: @storage; //think vars and functions
+}
+
+.constant {
+    color: @constant; //pound sign
+
+    &.character.escape {
+        color: @constant; //escaped chars
+    }
+
+    &.numeric {
+        color: @number; //numbers
+    }
+
+    &.other.color {
+        color: @constant;
+    }
+
+    &.other.symbol {
+        color: @number;
+    }
+}
+
+.variable {
+    color: @variable;
+
+    //do not know what this does
+    &.interpolation {
+        color: darken(@variable, 10%);
+    }
+
+    &.parameter.function {
+        color: @parameter;
+    }
+}
+
+.invalid.illegal {
+    background-color: @illegal;
+    color: @syntax-text-color;
+}
+
+.string {
+    color: @string;
+
+
+    &.regexp {
+        color: @regexp;
+
+        .source.ruby.embedded {
+            color: @regexp;
+        }
+    }
+
+
+    &.other.link {
+        color: @string;
+    }
+}
+
+.punctuation {
+    &.definition {
+        &.comment {
+            color: @punctuation;
+        }
+
+        &.string,
+        &.variable,
+        &.parameters,
+        &.array {
+            color: @punctuation;
+        }
+
+        &.heading,
+        &.identity {
+            color: @punctuation;
+        }
+
+        &.bold {
+            color: @punctuation;
+            font-weight: bold;
+        }
+
+        &.italic {
+            color: @punctuation;
+            font-style: italic;
+        }
+    }
+
+    &.section.embedded {
+        color: darken(@punctuation, 10%);
+    }
+
+}
+
+
+
+.support {
+    color: @support;
+    &.class {
+        //things like document and window
+        color: @support;
+    }
+
+    &.function  {
+        //things like built in function min() the log of console.log
+        color: @support;
+
+        &.any-method {
+            color: @support;
+        }
+    }
+}
+
+.entity {
+    &.name.type {
+        //things like the word console from console.log
+        color: @entity;
+    }
+    &.other.inherited-class {
+        color: @entity;
+    }
+    &.name.function {
+        color: @entity;
+    }
+
+    &.name.class, &.name.type.class {
+        color: @entity;
+    }
+
+    &.name.section {
+        color: @entity;
+    }
+
+    //think html tags
+    &.name.tag {
+        color: @entity;
+    }
+    //think class names in css and html
+    &.other.attribute-name {
+        color: @class;
+        //think ids in css and html
+        &.id {
+            color: @id;
+        }
+    }
+}
+
+.meta {
+    &.class {
+        color: @meta;
+    }
+
+    &.link {
+        color: @meta;
+    }
+
+    &.require {
+        color: @meta;
+    }
+
+    &.selector {
+        color: @meta;
+    }
+
+    &.separator {
+        background-color: @gray;
+        color: @syntax-text-color;
+    }
+}
+
+.none {
+    color: @syntax-text-color;
+}
+
+.markup {
+    &.bold {
+        color: @markup;
+        font-weight: bold;
+    }
+
+    &.changed {
+        color: @markup;
+    }
+
+    &.deleted {
+        color: @markup;
+    }
+
+    &.italic {
+        color: @markup;
+        font-style: italic;
+    }
+
+    &.heading .punctuation.definition.heading {
+        color: @markup;
+    }
+
+    &.inserted {
+        color: @markup;
+    }
+
+    &.list {
+        color: @markup;
+    }
+
+    &.quote {
+        color: @markup;
+    }
+
+    &.raw.inline {
+        color: @markup;
+    }
+}
+
+.source.gfm .markup {
+    -webkit-font-smoothing: auto;
+    &.heading {
+        color: @green;
+    }
+}
+
+atom-text-editor[mini] .scroll-view,
+:host([mini]) .scroll-view {
+    padding-left: 1px;
+}

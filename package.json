@@ -1,0 +1,11 @@
+{
+  "name": "material-300",
+  "theme": "syntax",
+  "version": "0.0.7",
+  "description": "A theme made using Google's Material Design value 300 colors",
+  "repository": "https://github.com/arturoalviar/material-300",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}
